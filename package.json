@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node api/index.js",
     "dev": "nodemon api/index.js",
-    "vercel-build": "cp -r src/client/* src/client/ && rm -rf src/client/uploads"
+    "vercel-build": "echo 'No build step needed'"
   },
   "dependencies": {
     "cors": "^2.8.5",
