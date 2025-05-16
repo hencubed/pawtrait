@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pawtrait - Pet Portrait Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Loading state moved outside container -->
+    <div id="loading" class="loading hidden">
+      <div class="loading-content">
+        <div class="loading-top">
+          <img
+            src="assets/pawtrait-loader.svg"
+            alt="Loading..."
+            class="loading-spinner"
+          />
+          <p id="loading-quip" class="loading-quip">
+            Polishing those whiskers...
+          </p>
+        </div>
+        <p class="loading-note">
+          Most images render within one minute, thanks for your patience!
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <header class="header">
+        <h1 class="main-title">Pawtrait</h1>
+        <div class="subtitle-container">
+          <span class="subtitle-text">Your pet,</span>
+          <div class="style-container">
+            <img
+              src="assets/airbnb.svg"
+              alt="Airbnb style"
+              class="style-icon"
+              width="24"
+              height="24"
+            />
+            <span class="subtitle-text">-style</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <div id="input-section" class="input-section">
+          <div class="input-container">
+            <input
+              type="text"
+              id="pet-name"
+              class="pet-name-input"
+              placeholder="Name of pet"
+              autocomplete="off"
+            />
+
+            <div id="drop-zone" class="drop-zone">
+              <img
+                src="assets/paw1.png"
+                alt=""
+                class="corner-paw top-left"
+                width="66"
+              />
+              <img
+                src="assets/paw2.png"
+                alt=""
+                class="corner-paw top-right"
+                width="66"
+              />
+              <img
+                src="assets/paw3.png"
+                alt=""
+                class="corner-paw bottom-right"
+                width="66"
+              />
+              <img
+                src="assets/paw4.png"
+                alt=""
+                class="corner-paw bottom-left"
+                width="66"
+              />
+              <input
+                type="file"
+                id="file-input"
+                accept="image/*"
+                class="file-input"
+              />
+              <div class="upload-prompt">
+                <div id="preview-container" class="preview-container">
+                  <img id="preview" class="preview-image hidden" />
+                </div>
+                <div id="upload-text" class="upload-text">
+                  <p class="upload-title">
+                    Upload your favourite pet photo here!
+                  </p>
+                  <p class="upload-description">
+                    For best results, use clear, high-quality photos with your
+                    pet as the focus.
+                  </p>
+                </div>
+              </div>
+              <div id="generations-counter" class="generations-counter">
+                3 generations left...
+              </div>
+            </div>
+
+            <button id="generate-btn" class="generate-btn" disabled>
+              Generate Pawtrait!
+            </button>
+          </div>
+        </div>
+
+        <div id="result-section" class="result-section hidden">
+          <div class="pawtrait-wrapper">
+            <div class="pawtrait-content">
+              <div class="pawtrait-container">
+                <img
+                  id="result-image"
+                  class="result-image"
+                  alt="Generated pet portrait"
+                />
+              </div>
+              <div class="pawtrait-footer">
+                <p class="download-hint">Click image to download!</p>
+                <a
+                  href="https://x.com/hencubed"
+                  target="_blank"
+                  class="twitter"
+                >
+                  <p class="twitter-p">@hencubed</p>
+                  <img
+                    src="assets/pawtrait-arrow.svg"
+                    alt="Twitter link"
+                    class="twitter-icon"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

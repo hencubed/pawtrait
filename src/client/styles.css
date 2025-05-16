@@ -1,0 +1,811 @@
+/* Font Declarations */
+@font-face {
+  font-family: "Airbnb Cereal App";
+  src: url("/fonts/Airbnb-Cereal-App-Book.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Airbnb Cereal App";
+  src: url("/fonts/Airbnb-Cereal-App-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Add Bold weight */
+@font-face {
+  font-family: "Airbnb Cereal";
+  src: url("/fonts/Airbnb-Cereal-App-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Selection Styles */
+::selection {
+  background-color: #e4e4e4;
+}
+
+::-moz-selection {
+  background-color: #e4e4e4;
+}
+
+/* Reset & Base Styles */
+:root {
+  --primary-color: #4a90e2;
+  --border: #e1e1e1;
+  --text: #222222;
+  --text-secondary: #6a6a6a;
+  --background: #fafafa;
+  --error: #ff4d4d;
+  --success: #47b881;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Airbnb Cereal App", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--background);
+  animation: pageLoad 600ms ease;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 1s ease;
+}
+
+/* Header Styles */
+.header {
+  margin-top: 80px;
+  text-align: center;
+  margin-bottom: 60px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms ease;
+}
+
+.header.loading-active {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 400ms ease, transform 0ms ease 400ms;
+}
+
+.main-title {
+  font-family: "Airbnb Cereal App", sans-serif;
+  font-weight: 500;
+  font-size: 66px;
+  line-height: 66px;
+  color: #222;
+  margin-bottom: 12px;
+}
+
+.subtitle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.subtitle-container.hidden {
+  display: none;
+}
+
+.style-container {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.subtitle-text {
+  font-family: "Airbnb Cereal App", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px; /* 133.333% */
+  color: #6a6a6a;
+  font-style: normal;
+}
+
+.style-icon {
+  width: 22.3px;
+  height: 24px;
+  display: block;
+}
+
+/* Input Section */
+.input-section {
+  width: 100%;
+  max-width: 480px;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+.input-section.fade-out {
+  opacity: 0;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+.pet-name-input {
+  width: 280px;
+  height: 44px;
+  padding: 8px 12px;
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px 0px rgba(34, 42, 53, 0.05),
+    0px 0px 0px 1px rgba(34, 42, 53, 0.08),
+    0px 1px 5px -4px rgba(19, 19, 22, 0.7);
+  font-family: "Airbnb Cereal App", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: left;
+  color: #222222;
+  transition: box-shadow 400ms ease;
+}
+
+.pet-name-input:hover {
+  box-shadow: 0px 4px 8px 0px rgba(34, 42, 53, 0.05),
+    0px 0px 0px 1px rgba(34, 42, 53, 0.24),
+    0px 1px 5px -4px rgba(19, 19, 22, 0.7);
+}
+
+.pet-name-input:focus {
+  outline: none;
+  box-shadow: 0px 4px 8px 0px rgba(34, 42, 53, 0.05), 0px 0px 0px 1px #222a35,
+    0px 1px 5px -4px rgba(19, 19, 22, 0.7);
+}
+
+.pet-name-input::placeholder {
+  color: #6a6a6a;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.drop-zone {
+  display: flex;
+  width: 400px;
+  height: 280px;
+  padding: 12px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #fafafa;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%2322222229' stroke-width='2' stroke-dasharray='6' stroke-dashoffset='6' stroke-linecap='square'/%3e%3c/svg%3e");
+  box-shadow: 0px 4px 8px 0px rgba(34, 42, 53, 0.05),
+    0px 1px 5px -4px rgba(19, 19, 22, 0.7);
+  position: relative;
+  cursor: pointer;
+  transition: background 400ms ease, background-image 400ms ease;
+  border: 0;
+}
+
+.drop-zone:hover:not(.has-image) {
+  background: #ffffff;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%2322222266' stroke-width='2' stroke-dasharray='6' stroke-dashoffset='6' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.drop-zone.has-image {
+  background: #eeeeee;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%2322222229' stroke-width='2' stroke-dasharray='6' stroke-dashoffset='6' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.upload-prompt {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+}
+
+.preview-container {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 6px #fff,
+    0px 22.588px 33.882px -11.294px rgba(0, 0, 0, 0.08),
+    0px 16.941px 16.941px -8.471px rgba(0, 0, 0, 0.02),
+    0px 8.471px 8.471px -4.235px rgba(0, 0, 0, 0.02),
+    0px 5.647px 5.647px -2.824px rgba(0, 0, 0, 0.02),
+    0px 2.824px 2.824px -1.412px rgba(0, 0, 0, 0.02),
+    0px 2.118px 2.104px 0px rgba(0, 0, 0, 0.03),
+    0px 0.706px 0.706px 0px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(10px);
+}
+
+.preview-container.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) translateY(0);
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.upload-text.hidden {
+  display: none;
+}
+
+.upload-title {
+  width: 268px;
+  font-family: "Airbnb Cereal App", sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  text-align: center;
+  color: #222222;
+}
+
+.upload-description {
+  width: 268px;
+  font-family: "Airbnb Cereal App", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #6a6a6a;
+}
+
+.generate-btn {
+  display: inline-flex;
+  height: 44px;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #393939;
+  border: none;
+  box-shadow: 0px 4px 8px 0px rgba(34, 42, 53, 0.05),
+    0px 0px 0px 1px rgba(34, 42, 53, 0.08),
+    0px 1px 5px -4px rgba(19, 19, 22, 0.7);
+  color: #fff;
+  font-family: "Airbnb Cereal App";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  cursor: pointer;
+  transition: background-color 400ms ease;
+  position: relative;
+}
+
+.generate-btn:hover:not(:disabled) {
+  background: #222222;
+}
+
+.generate-btn:disabled {
+  cursor: not-allowed;
+}
+
+.generate-btn:disabled::after {
+  content: "Upload pet pic first!";
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(3px);
+  color: #6a6a6a;
+  text-align: center;
+  font-family: "Airbnb Cereal App";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 400ms ease, transform 400ms ease;
+  pointer-events: none;
+}
+
+.generate-btn:disabled:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Result Section */
+.result-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+}
+
+/* New wrapper for pawtrait and hint */
+.pawtrait-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  translate: 0 15px;
+  transition: opacity 1s ease, translate 1s ease;
+}
+
+/* Container for pawtrait and its immediate content */
+.pawtrait-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+/* Container for download hint and twitter link */
+.pawtrait-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.result-section.visible .pawtrait-wrapper {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.pawtrait-container {
+  width: 400px;
+  height: 400px;
+  border-radius: 40px;
+  background: #ffffff;
+  box-shadow: 0px 0px 0px 12px #fff,
+    0px 45.176px 67.765px -22.588px rgba(0, 0, 0, 0.08),
+    0px 33.882px 33.882px -16.941px rgba(0, 0, 0, 0.02),
+    0px 16.941px 16.941px -8.471px rgba(0, 0, 0, 0.02),
+    0px 11.294px 11.294px -5.647px rgba(0, 0, 0, 0.02),
+    0px 5.647px 5.647px -2.824px rgba(0, 0, 0, 0.02),
+    0px 4.235px 4.207px 0px rgba(0, 0, 0, 0.03),
+    0px 1.412px 1.412px 0px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  cursor: pointer;
+  will-change: transform;
+  transform: scale(1) rotate(0);
+  transition: transform 400ms ease;
+}
+
+.result-section.visible .pawtrait-container {
+  animation: warmupScale 10ms ease;
+}
+
+.pawtrait-container:hover {
+  transform: scale(1.03) rotate(1deg);
+}
+
+.result-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.download-hint {
+  font-family: "Airbnb Cereal App", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #6a6a6a;
+}
+
+.pet-name-label {
+  font-size: 32px;
+  color: var(--text);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.pet-name-label.visible {
+  opacity: 1;
+}
+
+.remaining-count {
+  color: #666;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+}
+
+/* Loading State */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-content {
+  width: 295px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: loadingEnter 1s ease forwards;
+}
+
+@keyframes loadingEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  animation: spin 1.875s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-quip {
+  font-family: "Airbnb Cereal App", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #6a6a6a;
+}
+
+.loading-note {
+  font-family: "Airbnb Cereal App", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #222222;
+}
+
+/* Fade out everything else during loading */
+.fade-out {
+  opacity: 0 !important;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.container.loading-active {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Add the new keyframe for initial scale */
+@keyframes warmupScale {
+  from {
+    transform: scale(0.99);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.twitter {
+  display: inline-flex;
+  padding: 4px 10px;
+  align-items: center;
+  gap: 3px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background-color 400ms ease;
+}
+
+.twitter:hover {
+  background-color: #eeeeee;
+}
+
+.twitter-p {
+  color: #222;
+  text-align: center;
+  font-family: "Airbnb Cereal App";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.twitter-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.twitter-icon path {
+  fill: #222222;
+}
+
+/* Initial page fade in */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pets-image {
+  display: block;
+  margin: 60px auto 0;
+}
+
+/* Corner Paws */
+.corner-paw {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  transition: transform 400ms ease;
+  transform-origin: center;
+}
+
+.corner-paw.top-left {
+  top: -33px;
+  left: -33px;
+  transform: rotate(8deg) scale(1);
+}
+
+.corner-paw.top-right {
+  top: -33px;
+  right: -33px;
+  transform: rotate(-8deg) scale(1);
+}
+
+.corner-paw.bottom-right {
+  bottom: -33px;
+  right: -33px;
+  transform: rotate(8deg) scale(1);
+}
+
+.corner-paw.bottom-left {
+  bottom: -33px;
+  left: -33px;
+  transform: rotate(-8deg) scale(1);
+}
+
+.drop-zone:hover .corner-paw.top-left {
+  transform: rotate(4deg) scale(1.1);
+}
+
+.drop-zone:hover .corner-paw.top-right {
+  transform: rotate(-4deg) scale(1.1);
+}
+
+.drop-zone:hover .corner-paw.bottom-right {
+  transform: rotate(4deg) scale(1.1);
+}
+
+.drop-zone:hover .corner-paw.bottom-left {
+  transform: rotate(-4deg) scale(1.1);
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 440px) {
+  .header {
+    margin-top: 60px;
+    margin-bottom: 48px;
+  }
+
+  .main-title {
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 2px;
+  }
+
+  .subtitle-text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .style-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .input-section {
+    max-width: 300px;
+  }
+
+  .input-container {
+    gap: 40px;
+  }
+
+  .pet-name-input {
+    width: 240px;
+  }
+
+  .drop-zone {
+    width: 300px;
+    height: 210px;
+    margin-top: 16px;
+    transition: none !important;
+  }
+
+  /* Disable hover animations for drop zone */
+  .drop-zone:hover:not(.has-image) {
+    background: #fafafa;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='10' ry='10' stroke='%2322222229' stroke-width='2' stroke-dasharray='6' stroke-dashoffset='6' stroke-linecap='square'/%3e%3c/svg%3e");
+  }
+
+  .corner-paw {
+    width: 60px;
+    height: 60px;
+    transition: none !important;
+  }
+
+  .corner-paw.top-left {
+    top: -30px;
+    left: -30px;
+    transform: rotate(8deg) scale(1) !important;
+  }
+
+  .corner-paw.top-right {
+    top: -30px;
+    right: -30px;
+    transform: rotate(-8deg) scale(1) !important;
+  }
+
+  .corner-paw.bottom-right {
+    bottom: -30px;
+    right: -30px;
+    transform: rotate(8deg) scale(1) !important;
+  }
+
+  .corner-paw.bottom-left {
+    bottom: -30px;
+    left: -30px;
+    transform: rotate(-8deg) scale(1) !important;
+  }
+
+  /* Disable hover animations for corner paws on mobile */
+  .drop-zone:hover .corner-paw.top-left,
+  .drop-zone:hover .corner-paw.top-right,
+  .drop-zone:hover .corner-paw.bottom-right,
+  .drop-zone:hover .corner-paw.bottom-left {
+    transform: rotate(8deg) scale(1) !important;
+  }
+
+  .drop-zone:hover .corner-paw.top-right,
+  .drop-zone:hover .corner-paw.bottom-left {
+    transform: rotate(-8deg) scale(1) !important;
+  }
+
+  .preview-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .pawtrait-container {
+    width: 300px;
+    height: 300px;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+
+  .pawtrait-container:hover {
+    transform: none !important;
+  }
+
+  .result-section.visible .pawtrait-container {
+    animation: none !important;
+  }
+
+  /* Hide the tooltip on mobile */
+  .generate-btn:disabled::after {
+    display: none;
+  }
+
+  .upload-title {
+    font-size: 20px;
+    line-height: 24px;
+    width: 220px;
+  }
+
+  .generate-btn {
+    background: #222222;
+  }
+
+  .generate-btn:hover:not(:disabled) {
+    background: #222222;
+  }
+
+  .pawtrait-footer {
+    gap: 16px;
+  }
+
+  .drop-zone.has-image .generations-counter {
+    opacity: 0;
+  }
+}
+
+.generations-counter {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Airbnb Cereal App", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(106, 106, 106, 0.5);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 400ms ease;
+}
