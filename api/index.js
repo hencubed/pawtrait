@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
 const OpenAI = require("openai");
+const path = require("path");
 
 // Configure multer for memory storage
 const storage = multer.memoryStorage();
@@ -38,6 +39,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, "../public")));
+
 // Rate limiting middleware
 const checkRateLimit = (req, res, next) => {
   const ip = getCleanIp(req);
@@ -57,7 +61,8 @@ const checkRateLimit = (req, res, next) => {
 
   if (userLimit.remaining <= 0) {
     return res.status(429).json({
-      error: "You have reached your maximum number of generations.",
+      error:
+        "Thanks for trying Pawtrait, I am funding these myself so need to have a limit, sorry!",
       remaining: 0,
     });
   }
@@ -140,3 +145,11 @@ app.post(
 
 // Export the Express API
 module.exports = app;
+
+// Start the server if this file is run directly
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}
